@@ -1,0 +1,135 @@
+/* Reset and basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Roboto', sans-serif;
+  background: url('noaa-99F4mC79j1I-unsplash.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
+/* Search container styling */
+.searchContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Search input styling */
+.searchInput {
+  display: flex;
+}
+
+.searchInput input {
+  width: 300px;
+  height: 2rem;
+  outline: none;
+  font-size: 1rem;
+  color: #525050;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid #b3b3b3;
+}
+
+.searchInput input:focus {
+  border: 1px solid #9c9dde;
+}
+
+.searchInput button {
+  width: 3rem;
+  height: 2.5rem;
+  cursor: pointer;
+  color: #9b9b9b;
+  border-radius: 1.5rem;
+  margin-left: 0.4rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  border: 1px solid #b3b3b3;
+}
+
+.searchInput button:hover {
+  color: #fff;
+  background-color: #9c9dde;
+  border: 1px solid #9c9dde;
+}
+
+/* Main container styling */
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Weather widget styling */
+.widget {
+  position: relative;
+  width: 200px;
+  height: 150px;
+  background-color: #fcfdfd;
+  border-radius: 9px;
+  padding: 15px;
+  box-shadow: 0px 31px 35px -26px #080c21;
+}
+
+.left-panel {
+}
+
+.date {
+  font-size: 14px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.city {
+  font-size: 21px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-top: 5px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.temp {
+  font-size: 48px;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 100;
+}
+
+.panel {
+  display: inline-block;
+}
+
+.right-panel {
+  position: absolute;
+  float: right;
+  top: 0;
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+#btnDownload {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 9999;
+}
+
+#btnDownload img {
+  width: 40px;
+}
