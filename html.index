@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Monitoring System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="searchContainer">
+        <div class="searchInput">
+            <input type="text" id="cityInput" placeholder="Enter city name">
+            <button onclick="fetchWeather()">Search</button>
+        </div>
+    </div>
+
+    <div class="mainContainer" id="mainContainer">
+        <!-- Weather data will be dynamically inserted here -->
+    </div>
+
+    <script>
+        function fetchWeather() {
+            const city = document.getElementById('cityInput').value;
+            fetch(`/get_weather?city=${city}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        const container = document.getElementById('mainContainer');
+                        container.innerHTML = '';
+
+                        data.forEach(day => {
+                            const weatherHTML = `
+                                <div class="widget">
+                                    <div class="left-panel">
+                                        <div class="date">${day.date}</div>
+                                        <div class="city">${day.city}</div>
+                                        <div class="temp">${day.temperature}°C</div>
+                                    </div>
+                                    <div class="right-panel">
+                                        <button id="btnDownload"><img src="download-icon.png" alt="Download"></button>
+                                    </div>
+                                </div>
+                            `;
+                            container.innerHTML += weatherHTML;
+                        });
+                    }
+                })
+                .catch(error => console.error('Error fetching weather:', error));
+        }
+    </script>
+</body>
+</html>
